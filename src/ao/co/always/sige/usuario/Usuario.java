@@ -12,12 +12,12 @@ import javax.persistence.Table;
 public class Usuario implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue
-	private Integer idUsuario;
+	private int idUsuario;
 	private String nome;
 	private boolean activo;
-	
 	private String login;
 	private String senha;
 	private Date dataCriacao;
@@ -64,7 +64,7 @@ public class Usuario implements Serializable{
 		int result = 1;
 		result = prime * result + (activo ? 1231 : 1237);
 		result = prime * result + ((dataCriacao == null) ? 0 : dataCriacao.hashCode());
-		result = prime * result + ((idUsuario == null) ? 0 : idUsuario.hashCode());
+		result = prime * result + idUsuario;
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
@@ -86,10 +86,7 @@ public class Usuario implements Serializable{
 				return false;
 		} else if (!dataCriacao.equals(other.dataCriacao))
 			return false;
-		if (idUsuario == null) {
-			if (other.idUsuario != null)
-				return false;
-		} else if (!idUsuario.equals(other.idUsuario))
+		if (idUsuario != other.idUsuario)
 			return false;
 		if (login == null) {
 			if (other.login != null)
